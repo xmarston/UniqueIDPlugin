@@ -4,7 +4,7 @@
 #import "SSKeychain.h"
 #import <AdSupport/ASIdentifierManager.h>
 
-@implementation IDFVPlugin
+@implementation UniqueIDPlugin
 
 -(void)getUniqueID:(CDVInvokedUrlCommand*)command {
 	
