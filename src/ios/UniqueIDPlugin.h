@@ -3,5 +3,6 @@
 @interface UniqueIDPlugin : CDVPlugin
 
 - (void)getUniqueID:(CDVInvokedUrlCommand*)command;
++ (NSString*)UniqueAppId;
 
 @end
