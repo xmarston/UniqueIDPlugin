@@ -6,7 +6,7 @@
   UniqueID.prototype = {
 
     getUniqueID: function(callback, errCallbac) {
-      cordova.exec(callback, errCallbac, 'UniqueID', 'getUniqueID', []);
+      cordova.exec(callback, errCallbac, 'UniqueIDPlugin', 'getUniqueID', []);
     }
   };
 
