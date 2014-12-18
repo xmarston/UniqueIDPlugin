@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin id="es.dev-coders.UniqueIDPlugin" version="1.0.0" xmlns="http://www.phonegap.com/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+  <name>Unique ID Plugin for Cordova iOS apps</name>
+  <author>xmarston</author>
+  <description></description>
+  <license>MIT</license>
+  <js-module name="UniqueIDPlugin" src="www/UniqueIDPlugin.js">
+    <clobbers target="UniqueIDPlugin"/>
+  </js-module>
+  <engines>
+    <engine name="cordova" version="&gt;=3.0.0"/>
+  </engines>
+  <platform name="ios">
+    <config-file parent="/*" target="config.xml">
+      <feature name="UniqueIDPlugin">
+        <param name="ios-package" value="UniqueIDPlugin"/>
+      </feature>
+    </config-file>
+    <source-file src="src/ios/UniqueIDPlugin.m"/>
+    <header-file src="src/ios/UniqueIDPlugin.h"/>
+    <source-file src="src/ios/SSKeychain.m"/>
+    <header-file src="src/ios/SSKeychain.h"/>
+    <framework src="AVFoundation.framework" />
+    <framework src="Security.framework" />
+    <framework src="AdSupport.framework" />
+  </platform>
+</plugin>
