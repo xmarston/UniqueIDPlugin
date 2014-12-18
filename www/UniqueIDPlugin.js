@@ -1,17 +1,12 @@
-(function(window) {
-  var UniqueID = function() {
+var argscheck = require('cordova/argscheck'),
+  utils = require('cordova/utils'),
+  exec = require('cordova/exec');
 
-  }
+var UniqueID = function() {
+};
 
-  UniqueID.prototype = {
+UniqueID.getUniqueID = function(callback) {
+  exec(callback, null, "UniqueIDPlugin", "getUniqueID", []);
+};
 
-    getUniqueID: function(callback, errCallbac) {
-      cordova.exec(callback, errCallbac, 'UniqueIDPlugin', 'getUniqueID', []);
-    }
-  };
-
-  cordova.addConstructor(function() {
-    window.UniqueID = new UniqueID();
-  });
-
-})(window);
+module.exports = UniqueID;
