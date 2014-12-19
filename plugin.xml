@@ -2,7 +2,7 @@
 <plugin id="es.dev-coders.UniqueIDPlugin" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0">
   <name>Unique ID Plugin for Cordova iOS apps</name>
   <author>xmarston</author>
-  <description>This plugin allows the user obtain a unique id like uuid in early iOS versions. Only for Cordova iOS apps.</description>
+  <description>This plugin allows the user obtain a unique id like UUID in early iOS versions. Only for Cordova iOS apps.</description>
   <license>MIT</license>
   <js-module name="UniqueIDPlugin" src="www/UniqueIDPlugin.js">
     <clobbers target="UniqueIDPlugin"/>
