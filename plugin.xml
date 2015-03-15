@@ -13,7 +13,7 @@
   <platform name="android">
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="UniqueIDPlugin" >
-          <param name="android-package" value="es.dev_coders.UniqueIDPlugin"/>
+          <param name="android-package" value="es.dev_coders.uniqueidplugin.UniqueIDPlugin"/>
       </feature>
     </config-file>
     
