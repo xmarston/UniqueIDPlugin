@@ -17,6 +17,7 @@ import android.provider.Settings;
 
 public class UniqueIDPlugin extends CordovaPlugin {
 
+    private CallbackContext uniqueIDCallbackContext;
 	/**
      * Constructor.
     */
@@ -43,12 +44,14 @@ public class UniqueIDPlugin extends CordovaPlugin {
      * @return                  True if the action was valid, false if not.
      */
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
+        this.uniqueIDCallbackContext = callbackContext;
+
          if (action.equals("getUniqueID")) {
             String id = "";
             id = this.getId();
             PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, id);
             pluginResult.setKeepCallback(true);
-            callbackContext.sendPluginResult(pluginResult);
+            this.uniqueIDCallbackContext.sendPluginResult(pluginResult);
             return true;
         }
         return false;
