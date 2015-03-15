@@ -42,13 +42,10 @@ public class UniqueIDPlugin extends CordovaPlugin {
      * @param callbackContext   The callback id used when calling back into JavaScript.
      * @return                  True if the action was valid, false if not.
      */
-    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
          if (action.equals("getUniqueID")) {
             String id = "";
-            try {
-                id = this.getId();
-            } catch (JSONException e) { }
-
+            id = this.getId();
             PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, id);
             pluginResult.setKeepCallback(true);
             callbackContext.sendPluginResult(pluginResult);
