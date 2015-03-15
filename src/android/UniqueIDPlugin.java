@@ -1,4 +1,4 @@
-package es.dev_coders.UniqueIDPlugin;
+package es.dev_coders.uniqueidplugin;
 
 import android.content.Context;
 import android.provider.Settings.Secure;
