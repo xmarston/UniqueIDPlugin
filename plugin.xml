@@ -7,8 +7,10 @@
   <js-module name="UniqueIDPlugin" src="www/UniqueIDPlugin.js">
     <clobbers target="UniqueIDPlugin"/>
   </js-module>
-  
+
   <platform name="android">
+    <source-file src="src/android/UniqueIDPlugin.java" target-dir="src/es/dev_coders/uniqueidplugin" />
+    
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="UniqueIDPlugin" >
           <param name="android-package" value="es.dev_coders.uniqueidplugin.UniqueIDPlugin"/>
@@ -19,9 +21,8 @@
     <config-file target="AndroidManifest.xml" parent="/manifest">
       <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     </config-file>
-
-    <source-file src="src/android/UniqueIDPlugin.java" target-dir="src/es/dev_coders/uniqueidplugin" />
   </platform>
+
   <platform name="ios">
     <config-file parent="/*" target="config.xml">
       <feature name="UniqueIDPlugin">
