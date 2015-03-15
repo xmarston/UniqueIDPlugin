@@ -4,11 +4,12 @@ import android.content.Context;
 import android.provider.Settings.Secure;
 import android.telephony.TelephonyManager;
 
-import org.apache.cordova.CordovaWebView;
 import org.apache.cordova.CallbackContext;
-import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CordovaInterface;
+import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.CordovaWebView;
 import org.apache.cordova.PluginResult;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -45,7 +46,8 @@ public class UniqueIDPlugin extends CordovaPlugin {
      */
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
         this.uniqueIDCallbackContext = callbackContext;
-
+        final CordovaWebView appView = this.webView;
+        appView.sendJavascript("console.log(" + action + ")");
          if (action.equals("getUniqueID")) {
             String id = "";
             id = this.getId();
