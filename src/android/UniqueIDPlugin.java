@@ -46,8 +46,7 @@ public class UniqueIDPlugin extends CordovaPlugin {
      */
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
         this.uniqueIDCallbackContext = callbackContext;
-        final CordovaWebView appView = this.webView;
-        appView.sendJavascript("console.log(" + action + ")");
+        
          if (action.equals("getUniqueID")) {
             String id = "";
             id = this.getId();
