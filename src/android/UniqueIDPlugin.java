@@ -16,9 +16,9 @@ import android.provider.Settings;
 
 public class UniqueIDPlugin extends CordovaPlugin {
 
-	 /**
+	/**
      * Constructor.
-     */
+    */
     public UniqueIDPlugin() {
     }
 
