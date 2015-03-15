@@ -2,7 +2,7 @@ package es.dev-coders.UniqueIDPlugin;
 
 import android.content.Context;
 import android.provider.Settings.Secure;
-import android.telephony.TelephonyManager
+import android.telephony.TelephonyManager;
 
 import org.apache.cordova.CordovaWebView;
 import org.apache.cordova.CallbackContext;
