@@ -7,13 +7,12 @@
   <js-module name="UniqueIDPlugin" src="www/UniqueIDPlugin.js">
     <clobbers target="UniqueIDPlugin"/>
   </js-module>
-  <engines>
-    <engine name="cordova" version="&gt;=3.0.0"/>
-  </engines>
+  
   <platform name="android">
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="UniqueIDPlugin" >
           <param name="android-package" value="es.dev_coders.uniqueidplugin.UniqueIDPlugin"/>
+          <param name="onload" value="true" />
       </feature>
     </config-file>
     
