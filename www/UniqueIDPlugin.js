@@ -6,8 +6,8 @@ var UniqueID = function() {};
 
 UniqueID.getUniqueID = function(callback) {
 	var id;
-	
-	UniqueID.getFromCordova(function(result){ id = result; })
+
+	UniqueID.getFromCordova(function(result){ id = result; console.log(result); });
 
 	return id;
 };
