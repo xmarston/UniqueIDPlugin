@@ -5,7 +5,11 @@ var argscheck = require('cordova/argscheck'),
 var UniqueID = function() {};
 
 UniqueID.getUniqueID = function(callback) {
-	return UniqueID.getFromCordova(function(result){ return result; })
+	var id;
+	
+	UniqueID.getFromCordova(function(result){ id = result; })
+
+	return id;
 };
 
 UniqueID.getFromCordova = function(callback) {
