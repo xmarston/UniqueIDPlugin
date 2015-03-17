@@ -50,8 +50,11 @@ public class UniqueIDPlugin extends CordovaPlugin {
         
          if (action.equals("getUniqueID")) {
             String id = "";
-            //id = this.getId();
-            id = this.getPseudoUniqueID();
+            if (this.isTabletDeviceOrCantMakeCalls()) {
+            	id = this.getPseudoUniqueID();
+            } else {
+            	id = this.getId();
+            }
             PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, id);
             pluginResult.setKeepCallback(true);
             this.uniqueIDCallbackContext.sendPluginResult(pluginResult);
@@ -59,7 +62,20 @@ public class UniqueIDPlugin extends CordovaPlugin {
         }
         return false;
     }
-
+    
+    public boolean isTabletDeviceOrCantMakeCalls() {
+    	Context context = cordova.getActivity().getApplicationContext();
+    	TelephonyManager manager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+    	
+    	int type = manager.getPhoneType();
+    	
+    	if (type == TelephonyManager.PHONE_TYPE_NONE) { 
+    		return true;
+    	} 
+    	
+    	return false;
+    }
+    
 	public String getId() {
     	Context context = cordova.getActivity().getApplicationContext();
     	TelephonyManager  manager = (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
