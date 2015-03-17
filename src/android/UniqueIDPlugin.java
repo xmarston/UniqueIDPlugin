@@ -53,7 +53,12 @@ public class UniqueIDPlugin extends CordovaPlugin {
             if (this.isTabletDeviceOrCantMakeCalls()) {
             	id = this.getPseudoUniqueID();
             } else {
-            	id = this.getId() != '000000000000000' ? this.getId() : this.getPseudoUniqueID();
+            	String temp = this.getId();
+            	if (!temp.equals("000000000000000")) {
+            		id = this.getId();
+            	} else {
+            		id = this.getPseudoUniqueID();
+            	}
             }
             PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, id);
             pluginResult.setKeepCallback(true);
