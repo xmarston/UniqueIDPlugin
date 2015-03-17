@@ -6,8 +6,6 @@ var exec = require('cordova/exec'),
 channel.createSticky('onCordovaConnectionReady');
 channel.waitForInitialization('onCordovaConnectionReady');
 
-var UniqueID = function() {};
-
 function UniqueID() {
 	this.uniqueID = null;
 
