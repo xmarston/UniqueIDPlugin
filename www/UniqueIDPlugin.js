@@ -16,7 +16,8 @@ UniqueID.prototype.getUniqueID = function() {
 };
 
 var me = new UniqueID();
-console.log('ME >>>>>> ' + me);
+console.log('ME >>>>>> ');
+console.log(me);
 
 channel.createSticky('onCordovaConnectionReady');
 channel.waitForInitialization('onCordovaConnectionReady');
