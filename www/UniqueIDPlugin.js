@@ -25,10 +25,9 @@ channel.waitForInitialization('onCordovaConnectionReady');
 channel.onCordovaReady.subscribe(function() {
     me.getInfoID(function(result) {
         me.uniqueID = result
-        channel.onCordovaInfoReady.fire();
-    },function(e) {
-        me.available = false;
-        utils.alert("[ERROR] Error initializing Cordova: " + e);
+        if (channel.onCordovaConnectionReady.state !== 2) {
+            channel.onCordovaConnectionReady.fire();
+        }
     });
 });
 
