@@ -7,9 +7,22 @@
   <js-module name="UniqueIDPlugin" src="www/UniqueIDPlugin.js">
     <clobbers target="UniqueIDPlugin"/>
   </js-module>
-  <engines>
-    <engine name="cordova" version="&gt;=3.0.0"/>
-  </engines>
+
+  <platform name="android">
+    <source-file src="src/android/UniqueIDPlugin.java" target-dir="src/es/dev_coders/uniqueidplugin" />
+    
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="UniqueIDPlugin" >
+          <param name="android-package" value="es.dev_coders.uniqueidplugin.UniqueIDPlugin"/>
+          <param name="onload" value="true" />
+      </feature>
+    </config-file>
+    
+    <config-file target="AndroidManifest.xml" parent="/manifest">
+      <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    </config-file>
+  </platform>
+
   <platform name="ios">
     <config-file parent="/*" target="config.xml">
       <feature name="UniqueIDPlugin">
