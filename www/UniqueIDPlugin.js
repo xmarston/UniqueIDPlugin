@@ -13,7 +13,7 @@ function UniqueID() {
         me.getInfoID(function(result) {
             //ignoring info.cordova returning from native, we should use value from cordova.version defined in cordova.js
             //TODO: CB-5105 native implementations should not return info.cordova
-            me.UniqueID = result
+            me.uniqueID = result
             channel.onCordovaInfoReady.fire();
         },function(e) {
             me.available = false;
