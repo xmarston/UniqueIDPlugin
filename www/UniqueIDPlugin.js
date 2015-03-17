@@ -1,12 +1,10 @@
-var argscheck = require('cordova/argscheck'),
+var exec = require('cordova/exec'),
+    cordova = require('cordova'),
     channel = require('cordova/channel'),
-    utils = require('cordova/utils'),
-    exec = require('cordova/exec'),
-    cordova = require('cordova');
+    utils = require('cordova/utils');
 
-channel.createSticky('onCordovaInfoReady');
-// Tell cordova channel to wait on the CordovaInfoReady event
-channel.waitForInitialization('onCordovaInfoReady');
+channel.createSticky('onCordovaConnectionReady');
+channel.waitForInitialization('onCordovaConnectionReady');
 
 var UniqueID = function() {};
 
@@ -29,7 +27,6 @@ function UniqueID() {
 }
 
 UniqueID.prototype.getInfoID = function(successCallback) {
-    argscheck.checkArgs('fF', 'UniqueID.getInfoID', arguments);
     exec(successCallback, null, "UniqueIDPlugin", "getUniqueID", []);
 };
 
