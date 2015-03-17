@@ -10,5 +10,4 @@ cordova plugin add https://github.com/xmarston/UniqueIDPlugin.git
 
 Usage
 =====
-    UniqueIDPlugin.getUniqueID(function(result){ alert(result);//result will be the unique ID, 
-    	you can use it for device authentication, etc... });
+    UniqueIDPlugin.getUniqueID(); //result will be the unique ID
