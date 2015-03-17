@@ -3,25 +3,8 @@ var exec = require('cordova/exec'),
     channel = require('cordova/channel'),
     utils = require('cordova/utils');
 
-channel.createSticky('onCordovaConnectionReady');
-channel.waitForInitialization('onCordovaConnectionReady');
-
 function UniqueID() {
 	this.uniqueID = null;
-
-	var me = this;
-
-	channel.onCordovaReady.subscribe(function() {
-        me.getInfoID(function(result) {
-            //ignoring info.cordova returning from native, we should use value from cordova.version defined in cordova.js
-            //TODO: CB-5105 native implementations should not return info.cordova
-            me.uniqueID = result
-            channel.onCordovaInfoReady.fire();
-        },function(e) {
-            me.available = false;
-            utils.alert("[ERROR] Error initializing Cordova: " + e);
-        });
-    });
 }
 
 UniqueID.prototype.getInfoID = function(successCallback) {
@@ -32,4 +15,19 @@ UniqueID.prototype.getUniqueID = function() {
 	return this.uniqueID;
 };
 
-module.exports = new UniqueID();
+var me = new UniqueID();
+
+channel.createSticky('onCordovaConnectionReady');
+channel.waitForInitialization('onCordovaConnectionReady');
+
+channel.onCordovaReady.subscribe(function() {
+    me.getInfoID(function(result) {
+        me.uniqueID = result
+        channel.onCordovaInfoReady.fire();
+    },function(e) {
+        me.available = false;
+        utils.alert("[ERROR] Error initializing Cordova: " + e);
+    });
+});
+
+module.exports = me;
