@@ -1,6 +1,12 @@
 var argscheck = require('cordova/argscheck'),
-	utils = require('cordova/utils'),
-	exec = require('cordova/exec');
+    channel = require('cordova/channel'),
+    utils = require('cordova/utils'),
+    exec = require('cordova/exec'),
+    cordova = require('cordova');
+
+channel.createSticky('onCordovaInfoReady');
+// Tell cordova channel to wait on the CordovaInfoReady event
+channel.waitForInitialization('onCordovaInfoReady');
 
 var UniqueID = function() {};
 
